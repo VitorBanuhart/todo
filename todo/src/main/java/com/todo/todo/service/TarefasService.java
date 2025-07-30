@@ -1,5 +1,7 @@
 package com.todo.todo.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -23,6 +25,7 @@ public class TarefasService {
             .dataLimite(novaTarefaDTO.getDataLimite())
             .prioridade(novaTarefaDTO.getPrioridade())
             .status(Status.EM_ANDAMENTO)
+            .usuarioId(novaTarefaDTO.getUsuarioId())
         .build();
 
         repo.save(tarefa);

@@ -45,12 +45,16 @@ public class Tarefas {
     @Column(name = "status")
     private Status status;
 
-    public Tarefas(String nometarefa, String descTarefa, LocalDate dataLimite, Prioridade prioridade, Status status){
+    @Column(name = "usuario_id")
+    private Long usuarioId;
+
+    public Tarefas(String nometarefa, String descTarefa, LocalDate dataLimite, Prioridade prioridade, Status status, Long usuarioId){
         this.nomeTarefa = nometarefa;
         this.descTarefa = descTarefa;
         this.dataLimite = dataLimite;
         this.prioridade = prioridade;
         this.status = status;
+        this.usuarioId = usuarioId;
     }
 
     public Tarefas(TarefaRequestDTO obj) {

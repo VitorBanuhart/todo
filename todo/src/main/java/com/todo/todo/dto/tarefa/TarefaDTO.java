@@ -15,8 +15,9 @@ public class TarefaDTO {
     private LocalDate dataLimite;
     private Prioridade prioridade; 
     private Status status;
+    private Long usuarioId;
 
     public Tarefas transformaParaObjeto() {
-        return new Tarefas(nomeTarefa, descTarefa, dataLimite, prioridade, status);
+        return new Tarefas(nomeTarefa, descTarefa, dataLimite, prioridade, status, usuarioId);
     }
 }
