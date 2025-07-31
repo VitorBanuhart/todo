@@ -30,9 +30,10 @@ public class UserResource {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> loginUsuario(@RequestBody LoginUsuarioDTO usuarioDTO) {
-        service.loginUser(usuarioDTO); //TODO
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    public ResponseEntity<Long> loginUsuario(@RequestBody LoginUsuarioDTO usuarioDTO) {
+        Long id = service.searchForID(usuarioDTO); 
+        new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return ResponseEntity.ok().body(id);
     }
     
 }

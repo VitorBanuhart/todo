@@ -34,15 +34,6 @@ public class UsuarioService {
     
     }
 
-    public void loginUser(LoginUsuarioDTO loginUsuarioDTO) {
-        if (!repo.existsByEmail(loginUsuarioDTO.getEmail())) {
-            throw new IllegalArgumentException("Email não encontrado no sistema");
-        }
-
-        repo.findByEmail(loginUsuarioDTO.getEmail());
-
-    }
-
     public Long searchForID(LoginUsuarioDTO loginUsuarioDTO) {
         Optional<Usuario> usuario = repo.findByEmail(loginUsuarioDTO.getEmail());
         if (usuario.isPresent()) {
