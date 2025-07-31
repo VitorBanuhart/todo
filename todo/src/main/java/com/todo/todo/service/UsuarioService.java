@@ -1,5 +1,7 @@
 package com.todo.todo.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,18 @@ public class UsuarioService {
             throw new IllegalArgumentException("Email não encontrado no sistema");
         }
 
-        System.out.println("Acesso o sistema");
+        repo.findByEmail(loginUsuarioDTO.getEmail());
+
+    }
+
+    public Long searchForID(LoginUsuarioDTO loginUsuarioDTO) {
+        Optional<Usuario> usuario = repo.findByEmail(loginUsuarioDTO.getEmail());
+        if (usuario.isPresent()) {
+            Usuario usuarioLogin = usuario.get();
+            return usuarioLogin.getId();
+        } else {
+            return null;
+        }
+        
     }
 }

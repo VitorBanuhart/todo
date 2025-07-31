@@ -4,7 +4,9 @@ create table tarefas (
 	desc_tarefa varchar(250) not null,
 	data_limite DATE,
 	prioridade varchar(250),
-	status varchar(250)
+	status varchar(250),
+	usuario_id int REFERENCES usuario(id)
+	ON DELETE CASCADE ON UPDATE CASCADE 
 )
 
 create table usuario (

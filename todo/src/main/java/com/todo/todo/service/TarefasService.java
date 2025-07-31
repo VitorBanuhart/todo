@@ -1,7 +1,5 @@
 package com.todo.todo.service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -33,11 +31,6 @@ public class TarefasService {
 
     public Tarefas editTask(Tarefas obj){
         Tarefas tarefa = findById(obj.getId());
-
-             //TODO: validação de tarefa já finalizada
-        // if (tarefa.getStatus().equals(Status.FINALIZADO)) {
-        //     ret;
-        // }
 
         tarefa.setId(obj.getId());
         tarefa.setNomeTarefa(obj.getNomeTarefa());
